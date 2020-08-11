@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import List from './List'
 
  class Elements extends Component {
      constructor(props) {
@@ -47,9 +46,14 @@ import List from './List'
                     <ul className="list-group">
                         {
                             hashContainers.map((hashContainer, index) =>
-                            
-                                <List key={index} id={hashContainer.key} hash={hashContainer.hash} 
-                                deleteHash={() => this.deleteHash(index)} />
+                                <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+                                    <span className="badge badge-info badge-pill">{hashContainer.key} </span>
+                                    <span>{hashContainer.hash}</span>
+                                    <button className="btn btn-danger" 
+                                        onClick={() => this.deleteHash(index)} >
+                                        DELETE
+                                    </button>
+                                </li>
                             )
                         }
                     </ul>
